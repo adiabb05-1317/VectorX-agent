@@ -9,15 +9,16 @@ from src.database.db import DatabasePool
 
 def create_app(config_class=Config):
     app = Flask(__name__)
+
     app.config.from_object(config_class)
 
 
     #just logging configuration
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     
-
+    with app.app_context():
     #initialize the database
-    DatabasePool.initialize()
+        DatabasePool.initialize()
 
     @app.before_request
     def before_request():
