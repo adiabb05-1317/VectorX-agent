@@ -1,0 +1,23 @@
+[project]
+name = "immiscraper"
+version = "0.1.0"
+description = "ImmiScraper using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "crewai[tools]>=0.102.0,<1.0.0"
+]
+
+[project.scripts]
+immiscraper = "immiscraper.main:run"
+run_crew = "immiscraper.main:run"
+train = "immiscraper.main:train"
+replay = "immiscraper.main:replay"
+test = "immiscraper.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"
